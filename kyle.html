@@ -137,6 +137,9 @@
   .stick{position:fixed;left:0;right:0;bottom:0;display:none;gap:8px;padding:10px;background:#fff;border-top:1px solid var(--line);z-index:10}
   .stick a{flex:1;padding:12px 8px}
   @media(max-width:700px){.stick{display:flex}body{padding-bottom:76px}}
+  .so{margin-top:22px;border:2px solid var(--blue);border-radius:14px;padding:18px 20px;background:var(--sky)}
+  .so h3{margin:0 0 6px;color:var(--navy);font-size:1.15rem}
+  .so p{margin:0 0 12px;color:#33414f}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .doc{max-width:760px;margin:0 auto;padding:30px 20px 60px}
   .doc h1{color:var(--navy);font-size:2rem;margin:0 0 6px}
@@ -179,6 +182,11 @@
     <p class="sub">Open a category, pick your problem, and tell us what's happening. Then text or call and we'll take it from there. <span class="emnote"><strong>Emergency?</strong> If you smell gas, see smoke or fire, or someone is in danger, leave the home and call 911. Don't wait for us.</span></p>
     <div id="accs"></div>
     <p class="fine">Texas-licensed companies where a license is required, and insured always. Available 24/7 by text or phone.</p>
+    <div class="so" id="secondOpinion">
+      <h3>Free second opinions</h3>
+      <p>Got a quote that doesn't feel right? We'll connect you with a licensed company that specializes in your concern, free to you.</p>
+      <button type="button" class="btn primary" id="soBtn">Ask for a second opinion</button>
+    </div>
   </div>
 </section>
 
@@ -227,6 +235,7 @@
     <details><summary>How does the service call fee work?</summary><p>Companies usually charge a fee to come out and diagnose the problem. If you approve the repair, we cover that fee, so it doesn't add to your bill. Before the visit, the company will tell you the fee and confirm whether it's covered for your job.</p></details>
     <details><summary>Does it cost me anything to get matched?</summary><p>No. There's no charge to homeowners for the match. The company gives you its own quote, and you decide whether to hire it.</p></details>
     <details><summary>Will my request go to several companies?</summary><p>No. We send your request to one company at a time, so you won't get a flood of calls.</p></details>
+    <details><summary>What is a free second opinion?</summary><p>If another company gave you a diagnosis or quote you're unsure about, tell us what you were told. We'll connect you with a licensed company that specializes in that problem so you can compare. The second opinion is free to you, and you decide whether to hire anyone.</p></details>
     <details><summary>Can you give me a price over the phone?</summary><p>We can't quote prices because we don't do the work. The company will look at the job and quote you directly.</p></details>
   </div>
 </section>
@@ -366,7 +375,7 @@ function buildGroup(g, idx) {
     if (!ta.value.trim()) { errp.textContent = T.need_details; errp.style.display = "block"; ta.focus(); return; }
     errp.style.display = "none";
     var cityIdx = T.cities_en.indexOf(sel.value);
-    openFlow({ trade: current.n, tradeLabel: current.l, city: sel.value, cityLabel: cityIdx >= 0 ? T.cities[cityIdx] : "", details: ta.value.trim() });
+    openFlow({ trade: current.n, tradeLabel: current.l, city: sel.value, cityLabel: cityIdx >= 0 ? T.cities[cityIdx] : "", details: (soMode ? "[Second opinion] " : "") + ta.value.trim() });
   });
   g.trades.forEach(function (t) {
     var b = el("button", "chip", t.l); b.type = "button"; b.setAttribute("aria-pressed", "false");
@@ -381,6 +390,8 @@ function buildGroup(g, idx) {
 }
 
 var flowData = null;
+var soMode = false;
+$id("soBtn").addEventListener("click", function () { soMode = true; track("second_opinion_click", { page: CFG.page }); $id("accs").scrollIntoView({ behavior: "smooth", block: "start" }); });
 function openFlow(d) {
   flowData = d;
   track("confirm_request", { trade: d.trade, page: CFG.page });

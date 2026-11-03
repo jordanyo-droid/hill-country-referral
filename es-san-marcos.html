@@ -137,6 +137,9 @@
   .stick{position:fixed;left:0;right:0;bottom:0;display:none;gap:8px;padding:10px;background:#fff;border-top:1px solid var(--line);z-index:10}
   .stick a{flex:1;padding:12px 8px}
   @media(max-width:700px){.stick{display:flex}body{padding-bottom:76px}}
+  .so{margin-top:22px;border:2px solid var(--blue);border-radius:14px;padding:18px 20px;background:var(--sky)}
+  .so h3{margin:0 0 6px;color:var(--navy);font-size:1.15rem}
+  .so p{margin:0 0 12px;color:#33414f}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .doc{max-width:760px;margin:0 auto;padding:30px 20px 60px}
   .doc h1{color:var(--navy);font-size:2rem;margin:0 0 6px}
@@ -179,6 +182,11 @@
     <p class="sub">Abra una categoría, elija su problema y cuéntenos qué pasa. Luego envíe un mensaje o llámenos y nosotros nos encargamos. <span class="emnote"><strong>¿Emergencia?</strong> Si huele a gas, ve humo o fuego, o alguien está en peligro, salga de la casa y llame al 911. No nos espere.</span></p>
     <div id="accs"></div>
     <p class="fine">Empresas con licencia de Texas donde se requiere, y siempre aseguradas. Disponible 24/7 por mensaje o teléfono.</p>
+    <div class="so" id="secondOpinion">
+      <h3>Segundas opiniones gratis</h3>
+      <p>¿Recibió una cotización que no le convence? Le conectamos con una empresa con licencia que se especializa en su problema, sin costo para usted.</p>
+      <button type="button" class="btn primary" id="soBtn">Pedir una segunda opinión</button>
+    </div>
   </div>
 </section>
 
@@ -227,6 +235,7 @@
     <details><summary>¿Cómo funciona la tarifa de visita?</summary><p>Las empresas suelen cobrar una tarifa por ir a diagnosticar el problema. Si usted aprueba la reparación, nosotros cubrimos esa tarifa y no se suma a su cuenta. Antes de la visita, la empresa le dirá la tarifa y confirmará si está cubierta en su caso.</p></details>
     <details><summary>¿Me cuesta algo que me conecten?</summary><p>No. No hay ningún cargo para los propietarios por la conexión. La empresa le da su propia cotización y usted decide si la contrata.</p></details>
     <details><summary>¿Mi solicitud irá a varias empresas?</summary><p>No. Enviamos su solicitud a una empresa a la vez, para que no reciba una avalancha de llamadas.</p></details>
+    <details><summary>¿Qué es una segunda opinión gratis?</summary><p>Si otra empresa le dio un diagnóstico o una cotización que le genera dudas, cuéntenos qué le dijeron. Le conectaremos con una empresa con licencia que se especializa en ese problema para que pueda comparar. La segunda opinión es gratis para usted, y usted decide si contrata a alguien.</p></details>
     <details><summary>¿Pueden darme un precio por teléfono?</summary><p>No podemos dar precios porque no hacemos el trabajo. La empresa revisará el trabajo y le dará una cotización directa.</p></details>
   </div>
 </section>
@@ -366,7 +375,7 @@ function buildGroup(g, idx) {
     if (!ta.value.trim()) { errp.textContent = T.need_details; errp.style.display = "block"; ta.focus(); return; }
     errp.style.display = "none";
     var cityIdx = T.cities_en.indexOf(sel.value);
-    openFlow({ trade: current.n, tradeLabel: current.l, city: sel.value, cityLabel: cityIdx >= 0 ? T.cities[cityIdx] : "", details: ta.value.trim() });
+    openFlow({ trade: current.n, tradeLabel: current.l, city: sel.value, cityLabel: cityIdx >= 0 ? T.cities[cityIdx] : "", details: (soMode ? "[Second opinion] " : "") + ta.value.trim() });
   });
   g.trades.forEach(function (t) {
     var b = el("button", "chip", t.l); b.type = "button"; b.setAttribute("aria-pressed", "false");
@@ -381,6 +390,8 @@ function buildGroup(g, idx) {
 }
 
 var flowData = null;
+var soMode = false;
+$id("soBtn").addEventListener("click", function () { soMode = true; track("second_opinion_click", { page: CFG.page }); $id("accs").scrollIntoView({ behavior: "smooth", block: "start" }); });
 function openFlow(d) {
   flowData = d;
   track("confirm_request", { trade: d.trade, page: CFG.page });
