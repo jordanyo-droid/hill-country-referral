@@ -130,6 +130,7 @@
   .stick{position:fixed;left:0;right:0;bottom:0;display:none;gap:8px;padding:10px;background:#fff;border-top:1px solid var(--line);z-index:10}
   .stick a{flex:1;padding:12px 8px}
   @media(max-width:700px){.stick{display:flex}body{padding-bottom:76px}}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .doc{max-width:760px;margin:0 auto;padding:30px 20px 60px}
   .doc h1{color:var(--navy);font-size:2rem;margin:0 0 6px}
   .doc h2{color:var(--navy);font-size:1.25rem;margin:26px 0 6px}
@@ -280,6 +281,8 @@
       </div>
       <form id="detailsForm" class="dform">
         <div><label for="fName">Su nombre</label><input id="fName" required autocomplete="name"></div>
+        <div><label for="fPhone">Teléfono</label><input id="fPhone" type="tel" required autocomplete="tel"></div>
+        <div class="hp" aria-hidden="true"><label for="fWebsite">Website</label><input id="fWebsite" tabindex="-1" autocomplete="off"></div>
         <div><label for="fEmail">Correo electrónico</label><input id="fEmail" type="email" required autocomplete="email"></div>
         <div><label for="fAddr">Dirección donde se necesita el trabajo</label><input id="fAddr" required autocomplete="street-address" placeholder="Calle, ciudad, código postal"></div>
         <button class="btn primary" type="submit" style="width:100%">Continuar</button>
@@ -311,7 +314,7 @@
 </div>
 
 <script>
-var CFG = {"lang": "es", "page": "san-marcos", "cityEn": "San Marcos", "brand": "Hill Country Referral Services", "phone": "(830) 965-0532", "digits": "8309650532", "email": "hillcountryreferralservices@gmail.com", "gaId": "", "formUrl": "", "contractorFormUrl": "", "reviews": [], "heroPhoto": "", "photos": [], "t": {"groups": [{"title": "Aire acondicionado, plomería y electricidad", "desc": "Aire y calefacción, fugas y tapones, enchufes y corriente", "trades": [{"n": "HVAC", "l": "Aire y calefacción", "ph": "Ejemplo: el aire sopla caliente o la calefacción no enciende."}, {"n": "Plumbing", "l": "Plomería", "ph": "Ejemplo: tubería con fuga, drenaje tapado, sin agua caliente."}, {"n": "Electrical", "l": "Electricidad", "ph": "Ejemplo: enchufes que no funcionan, el interruptor se dispara, luces que parpadean."}]}, {"title": "Techos y cimientos", "desc": "Goteras, daños por tormenta, grietas y hundimientos", "trades": [{"n": "Roofing", "l": "Techos", "ph": "Ejemplo: gotera después de la tormenta, tejas faltantes, necesito un presupuesto."}, {"n": "Foundation", "l": "Cimientos", "ph": "Ejemplo: grietas en paredes o pisos, puertas que se atoran, pisos desnivelados."}]}, {"title": "Mantenimiento y servicios del hogar", "desc": "Control de plagas, puertas de garaje, electrodomésticos y calentadores de agua", "trades": [{"n": "Pest control", "l": "Control de plagas", "ph": "Ejemplo: hormigas, cucarachas, roedores, avispas, termitas."}, {"n": "Garage door", "l": "Puerta de garaje", "ph": "Ejemplo: la puerta no abre ni cierra, resorte o motor roto."}, {"n": "Appliance repair", "l": "Reparación de electrodomésticos", "ph": "Ejemplo: lavadora, secadora, refrigerador u horno que no funciona."}, {"n": "Water heater", "l": "Calentador de agua", "ph": "Ejemplo: sin agua caliente, tanque con fuga, ruidos extraños."}]}], "cities": ["New Braunfels", "San Marcos", "Kyle", "Wimberley", "Otra zona cercana"], "cities_en": ["New Braunfels", "San Marcos", "Kyle", "Wimberley", "Other nearby"], "step1": "1. ¿En qué necesita ayuda?", "step2": "2. Cuéntenos qué pasa en su hogar", "city_opt": "Su ciudad (opcional)", "select": "Seleccione", "confirm": "Confirmar", "confirm_note": "Después revisará nuestras promesas y agregará sus datos de contacto.", "need_details": "Por favor cuéntenos un poco qué está pasando.", "f_notgiven": "No indicada", "d_sub": "Gracias, {name}. Envínos un mensaje o llámenos ahora y confirmaremos lo que necesita para conectarle con una empresa con licencia y seguro.", "c_copied": "Copiado", "c_copy_fail": "Seleccione el mensaje de arriba y cópielo", "lang_line": "Language: Spanish"}};
+var CFG = {"lang": "es", "page": "san-marcos", "cityEn": "San Marcos", "brand": "Hill Country Referral Services", "phone": "(830) 965-0532", "digits": "8309650532", "email": "hillcountryreferralservices@gmail.com", "gaId": "", "formUrl": "", "contractorFormUrl": "", "leadEndpoint": "", "reviews": [], "heroPhoto": "", "photos": [], "t": {"groups": [{"title": "Aire acondicionado, plomería y electricidad", "desc": "Aire y calefacción, fugas y tapones, enchufes y corriente", "trades": [{"n": "HVAC", "l": "Aire y calefacción", "ph": "Ejemplo: el aire sopla caliente o la calefacción no enciende."}, {"n": "Plumbing", "l": "Plomería", "ph": "Ejemplo: tubería con fuga, drenaje tapado, sin agua caliente."}, {"n": "Electrical", "l": "Electricidad", "ph": "Ejemplo: enchufes que no funcionan, el interruptor se dispara, luces que parpadean."}]}, {"title": "Techos y cimientos", "desc": "Goteras, daños por tormenta, grietas y hundimientos", "trades": [{"n": "Roofing", "l": "Techos", "ph": "Ejemplo: gotera después de la tormenta, tejas faltantes, necesito un presupuesto."}, {"n": "Foundation", "l": "Cimientos", "ph": "Ejemplo: grietas en paredes o pisos, puertas que se atoran, pisos desnivelados."}]}, {"title": "Mantenimiento y servicios del hogar", "desc": "Control de plagas, puertas de garaje, electrodomésticos y calentadores de agua", "trades": [{"n": "Pest control", "l": "Control de plagas", "ph": "Ejemplo: hormigas, cucarachas, roedores, avispas, termitas."}, {"n": "Garage door", "l": "Puerta de garaje", "ph": "Ejemplo: la puerta no abre ni cierra, resorte o motor roto."}, {"n": "Appliance repair", "l": "Reparación de electrodomésticos", "ph": "Ejemplo: lavadora, secadora, refrigerador u horno que no funciona."}, {"n": "Water heater", "l": "Calentador de agua", "ph": "Ejemplo: sin agua caliente, tanque con fuga, ruidos extraños."}]}], "cities": ["New Braunfels", "San Marcos", "Kyle", "Wimberley", "Otra zona cercana"], "cities_en": ["New Braunfels", "San Marcos", "Kyle", "Wimberley", "Other nearby"], "step1": "1. ¿En qué necesita ayuda?", "step2": "2. Cuéntenos qué pasa en su hogar", "city_opt": "Su ciudad (opcional)", "select": "Seleccione", "confirm": "Confirmar", "confirm_note": "Después revisará nuestras promesas y agregará sus datos de contacto.", "need_details": "Por favor cuéntenos un poco qué está pasando.", "f_notgiven": "No indicada", "d_sub": "Gracias, {name}. Envínos un mensaje o llámenos ahora y confirmaremos lo que necesita para conectarle con una empresa con licencia y seguro.", "d_title_sent": "Recibimos su solicitud", "d_sub_sent": "Gracias, {name}. Tenemos sus datos y confirmaremos lo que necesita. Para ir más rápido, envíenos un mensaje o llámenos ahora.", "c_copied": "Copiado", "c_copy_fail": "Seleccione el mensaje de arriba y cópielo", "lang_line": "Language: Spanish"}};
 var T = CFG.t;
 function $id(x) { return document.getElementById(x); }
 function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
@@ -387,8 +390,8 @@ $id("flowClose").addEventListener("click", closeFlow);
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeFlow(); });
 $id("detailsForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  var name = $id("fName").value.trim(), email = $id("fEmail").value.trim(), addr = $id("fAddr").value.trim();
-  var msg = CFG.brand + " request\nName: " + name + "\nEmail: " + email + "\nAddress: " + addr +
+  var name = $id("fName").value.trim(), phone = $id("fPhone").value.trim(), email = $id("fEmail").value.trim(), addr = $id("fAddr").value.trim();
+  var msg = CFG.brand + " request\nName: " + name + "\nPhone: " + phone + "\nEmail: " + email + "\nAddress: " + addr +
             "\nNeed: " + flowData.trade + (flowData.city ? "\nCity: " + flowData.city : "") + "\nDetails: " + flowData.details +
             "\n" + T.lang_line + "\nSource: Website (" + CFG.page + ")";
   $id("fMsg").textContent = msg;
@@ -399,6 +402,20 @@ $id("detailsForm").addEventListener("submit", function (e) {
   $id("step1").style.display = "none"; $id("step2").style.display = "block";
   $id("flow").scrollTop = 0;
   track("details_submitted", { trade: flowData.trade, page: CFG.page });
+  if (CFG.leadEndpoint) {
+    var payload = { name: name, phone: phone, email: email, address: addr, need: flowData.trade, city: flowData.city || "",
+                    details: flowData.details, language: CFG.lang === "es" ? "Spanish" : "English", source: "Website (" + CFG.page + ")",
+                    website: $id("fWebsite").value };
+    try {
+      fetch(CFG.leadEndpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
+        .then(function () {
+          $id("doneTitle").textContent = T.d_title_sent;
+          $id("doneSub").textContent = T.d_sub_sent.replace("{name}", name.split(" ")[0] || "");
+          track("lead_sent", { trade: flowData.trade, page: CFG.page });
+        })
+        .catch(function () {});
+    } catch (err) {}
+  }
 });
 $id("fText").addEventListener("click", function () { track("text_click", { trade: flowData ? flowData.trade : "" }); });
 $id("fCall").addEventListener("click", function () { track("call_click", { location: "flow" }); });
