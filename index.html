@@ -136,6 +136,7 @@
   .fmsg{white-space:pre-wrap;background:#f5f8fb;border:1px solid var(--line);border-radius:8px;padding:12px;font:inherit;font-size:.9rem;margin:14px 0 10px}
   .stick{position:fixed;left:0;right:0;bottom:0;display:none;gap:8px;padding:10px;background:#fff;border-top:1px solid var(--line);z-index:10}
   .stick a{flex:1;padding:12px 8px}
+  body.kb .stick,body.flowopen .stick{display:none!important}
   @media(max-width:700px){.stick{display:flex}body{padding-bottom:76px}}
   .so{margin-top:22px;border:2px solid var(--blue);border-radius:14px;padding:18px 20px;background:var(--sky)}
   .so h3{margin:0 0 6px;color:var(--navy);font-size:1.15rem}
@@ -391,6 +392,9 @@ function buildGroup(g, idx) {
 
 var flowData = null;
 var soMode = false;
+var isField = function (n) { return n && /^(INPUT|TEXTAREA|SELECT)$/.test(n.tagName); };
+document.addEventListener("focusin", function (e) { if (isField(e.target)) document.body.classList.add("kb"); });
+document.addEventListener("focusout", function () { setTimeout(function () { if (!isField(document.activeElement)) document.body.classList.remove("kb"); }, 150); });
 $id("soBtn").addEventListener("click", function () { soMode = true; track("second_opinion_click", { page: CFG.page }); $id("accs").scrollIntoView({ behavior: "smooth", block: "start" }); });
 function openFlow(d) {
   flowData = d;
@@ -399,11 +403,11 @@ function openFlow(d) {
   $id("sCity").textContent = d.cityLabel || T.f_notgiven;
   $id("sDetails").textContent = d.details;
   $id("step1").style.display = "block"; $id("step2").style.display = "none";
-  $id("flow").classList.add("open"); $id("flow").scrollTop = 0;
+  $id("flow").classList.add("open"); $id("flow").scrollTop = 0; document.body.classList.add("flowopen");
   document.body.style.overflow = "hidden";
   setTimeout(function () { $id("fName").focus(); }, 50);
 }
-function closeFlow() { $id("flow").classList.remove("open"); document.body.style.overflow = ""; }
+function closeFlow() { $id("flow").classList.remove("open"); document.body.classList.remove("flowopen"); document.body.style.overflow = ""; }
 $id("flowBack").addEventListener("click", closeFlow);
 $id("flowClose").addEventListener("click", closeFlow);
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeFlow(); });
