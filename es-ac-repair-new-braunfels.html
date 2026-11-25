@@ -265,6 +265,8 @@
   @media(max-width:700px){.ptable{min-width:0}.ptable thead{display:none}.ptable tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}.ptable th,.ptable td{display:block;border:0;padding:2px 4px}.ptable tbody th{font-size:1.05rem}}
   .heroprice{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#1a1a1a;font-weight:700;font-size:.95rem;text-decoration:none;line-height:1.3}
   .heroprice:hover{filter:brightness(1.06)}
+  .grouph{margin-top:28px;font-size:1.25rem}
+  .grouph+.sub{margin-bottom:10px}
 
 </style>
 </head>
@@ -288,7 +290,7 @@
         <h2 id="pickH">¿Qué necesita reparar?</h2>
         <div class="tiles" role="group" aria-labelledby="pickH"><button type="button" class="tile" data-trade="HVAC"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12 2.5L12 21.5M20.2 7.2L3.8 16.8M20.2 16.8L3.8 7.3M9.4 3.8L12 6.4L14.6 3.8M17.8 5.6L16.8 9.2L20.4 10.2M20.4 13.8L16.8 14.8L17.8 18.4M14.6 20.2L12 17.6L9.4 20.2M6.2 18.4L7.2 14.8L3.6 13.8M3.6 10.2L7.2 9.2L6.2 5.6'/></svg><span>Aire y calefacción</span></button><button type="button" class="tile" data-trade="Plumbing"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12 3c3.6 4.3 6 7.4 6 10.6a6 6 0 0 1-12 0C6 10.4 8.4 7.3 12 3zM9.3 14.2a2.8 2.8 0 0 0 2.2 2.6'/></svg><span>Plomería</span></button><button type="button" class="tile" data-trade="Electrical"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M13 2.5 5 13.5h6L10 21.5l9-11.5h-6.3L13 2.5z'/></svg><span>Electricidad</span></button><button type="button" class="tile" data-trade="Roofing"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M2.5 12 12 4l9.5 8M5.5 10v10h13V10M10 20v-5h4v5'/></svg><span>Techos</span></button><button type="button" class="tile" data-trade="Foundation"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M3 20.5h18M5.5 20.5V13h13v7.5M8.5 13V8.5h7V13M12 13l-1.2 2.6 2.2 1.6-1 3.3'/></svg><span>Cimientos</span></button><button type="button" class="tile" data-trade="Pest control"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M8 13a4 4 0 0 1 8 0v3a4 4 0 0 1-8 0zM10 9.4a2.1 2.1 0 0 1 4 0M9.6 7.4 8 5M14.4 7.4 16 5M8 13H4.5M16 13h3.5M8 17l-3 2M16 17l3 2M12 9.5V20'/></svg><span>Control de plagas</span></button><button type="button" class="tile" data-trade="Garage door"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M3 20.5V9.5l9-5.5 9 5.5V20.5M7 20.5V12h10v8.5M7 15h10M7 17.8h10'/></svg><span>Puerta de garaje</span></button><button type="button" class="tile" data-trade="Appliance repair"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M6.5 3h11A1.5 1.5 0 0 1 19 4.5v15a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19.5v-15A1.5 1.5 0 0 1 6.5 3zM12 9.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM8 6.2h.01M11 6.2h3'/></svg><span>Electrodomésticos</span></button><button type="button" class="tile" data-trade="Water heater"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M8.5 3h7A2.5 2.5 0 0 1 18 5.5v12a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 6 17.5v-12A2.5 2.5 0 0 1 8.5 3zM9 20v2M15 20v2M12 8.5c1.7 1.9 2.6 3.1 2.6 4.5a2.6 2.6 0 0 1-5.2 0c0-1.4.9-2.6 2.6-4.5z'/></svg><span>Calentador de agua</span></button></div>
         <p class="orcall">O llame al <a id="phoneHero" href="tel:+18309650532">(830) 965-0532</a>, a cualquier hora.</p>
-        <a class="heroprice" href="es-ac-repair-prices.html">¿No sabe cuánto cuesta? Vea los precios promedio de reparaciones comunes</a>
+        <a class="heroprice" href="es-ac-repair-prices.html">¿No sabe cuánto cuesta? Vea los precios promedio de reparación de aire y calefacción</a>
       </div>
     </div>
   </div>
@@ -327,7 +329,7 @@
       <div><h3>Segundas opiniones gratis</h3><p>¿Recibió una cotización que no le convence? Le conectamos con una empresa con licencia que se especializa en su problema, sin costo para usted.</p></div>
       <button type="button" class="btn primary" id="soBtn">Pedir una segunda opinión</button>
     </div>
-    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta? Vea los precios promedio de reparaciones comunes</strong><span>Precios aproximados de capacitores, contactores, motores, refrigerante, serpentines y compresores.</span></a>
+    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta? Vea los precios promedio de reparación de aire y calefacción</strong><span>Precios aproximados de calentones, resistencias eléctricas, bombas de calor, capacitores, serpentines, compresores y más.</span></a>
   </div>
 </section>
 <section>
@@ -336,7 +338,7 @@
     <p class="sub">Díganos cuál se parece al suyo, o descríbalo con sus propias palabras.</p>
     <ul class="probs"><li>El aire sopla caliente o no enfría</li><li>La unidad no enciende o se apaga sola</li><li>Serpentín congelado o hielo en las líneas</li><li>Fuga de agua alrededor de la unidad interior</li><li>Ruidos extraños u olor a quemado</li><li>La calefacción o la bomba de calor no calienta la casa</li><li>Recibos de luz altos o cuartos con temperatura desigual</li><li>Una cotización de reemplazo sobre la que quiere una segunda opinión</li></ul>
     <a class="btn navy" href="#services">Obtener ayuda ahora</a>
-    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta? Vea los precios promedio de reparaciones comunes</strong><span>Precios aproximados de capacitores, contactores, motores, refrigerante, serpentines y compresores.</span></a>
+    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta? Vea los precios promedio de reparación de aire y calefacción</strong><span>Precios aproximados de calentones, resistencias eléctricas, bombas de calor, capacitores, serpentines, compresores y más.</span></a>
   </div>
 </section>
 
@@ -368,7 +370,7 @@
     <h2>Zonas que atendemos</h2>
     <p class="sub">Aquí mismo, en el Hill Country de Texas.</p>
     <div class="cities"><a class="city here" style="--c:#0f4c5c" href="es-ac-repair-new-braunfels.html">New Braunfels<span>Reparación de aire en New Braunfels</span></a><a class="city" style="--c:#6b1f2a" href="es-ac-repair-san-marcos.html">San Marcos<span>Reparación de aire en San Marcos</span></a><a class="city" style="--c:#24543a" href="es-ac-repair-kyle.html">Kyle<span>Reparación de aire en Kyle</span></a><a class="city" style="--c:#7a3e1d" href="es-ac-repair-wimberley.html">Wimberley<span>Reparación de aire en Wimberley</span></a></div>
-    <div class="pop"><h3>Solicitudes frecuentes</h3><ul><li><a href="es-plumber-new-braunfels.html">Plomero en New Braunfels</a></li><li><a href="es-electrician-new-braunfels.html">Electricista en New Braunfels</a></li><li><a href="es-ac-cost-new-braunfels.html">Costo de reparar o reemplazar el aire en New Braunfels</a></li><li><a href="es-new-braunfels.html">New Braunfels: Aire, plomería, electricidad y más</a></li><li><a href="es-ac-repair-prices.html">Precios promedio de reparación de aire en el Hill Country</a></li></ul></div>
+    <div class="pop"><h3>Solicitudes frecuentes</h3><ul><li><a href="es-plumber-new-braunfels.html">Plomero en New Braunfels</a></li><li><a href="es-electrician-new-braunfels.html">Electricista en New Braunfels</a></li><li><a href="es-ac-cost-new-braunfels.html">Costo de reparar o reemplazar el aire en New Braunfels</a></li><li><a href="es-new-braunfels.html">New Braunfels: Aire, plomería, electricidad y más</a></li><li><a href="es-ac-repair-prices.html">Precios promedio de reparación de aire y calefacción en el Hill Country</a></li></ul></div>
   </div>
 </section>
 
@@ -437,7 +439,7 @@
     <div class="fcols">
       <div><p><strong>Hill Country Referral Services</strong> es un servicio de referencia, no un contratista. Todo el trabajo lo realizan empresas independientes, con licencia donde Texas la exige. No realizamos, supervisamos ni garantizamos ningún trabajo.</p><p>Negocio local de New Braunfels.</p></div>
       <div><h3>Ciudades que atendemos</h3><ul><li><a href="es-new-braunfels.html">New Braunfels</a></li><li><a href="es-san-marcos.html">San Marcos</a></li><li><a href="es-kyle.html">Kyle</a></li><li><a href="es-wimberley.html">Wimberley</a></li></ul></div>
-      <div><h3>Contacto</h3><ul><li><a href="tel:+18309650532">(830) 965-0532</a></li><li><a href="mailto:hillcountryreferralservices@gmail.com">hillcountryreferralservices@gmail.com</a></li><li><a href="es-ac-repair-prices.html">Precios promedio de reparación de aire en el Hill Country</a></li><li>Puede verificar la licencia de un contratista en tdlr.texas.gov.</li></ul></div>
+      <div><h3>Contacto</h3><ul><li><a href="tel:+18309650532">(830) 965-0532</a></li><li><a href="mailto:hillcountryreferralservices@gmail.com">hillcountryreferralservices@gmail.com</a></li><li><a href="es-ac-repair-prices.html">Precios promedio de reparación de aire y calefacción en el Hill Country</a></li><li>Puede verificar la licencia de un contratista en tdlr.texas.gov.</li></ul></div>
     </div>
     <div class="links"><a href="privacy.html">Política de privacidad (en inglés)</a><a href="terms.html">Términos y mensajes de texto (en inglés)</a></div>
     <p id="gaNote" class="hidden">Este sitio usa Google Analytics para contar visitas. No envía su nombre, teléfono ni dirección.</p>
