@@ -276,6 +276,11 @@
   .heroprices .heroprice{margin-top:0;flex:1 1 220px}
   .heattab{flex:1 1 220px;display:inline-flex;align-items:center;padding:10px 14px;border-radius:10px;background:var(--accent);color:#1a1a1a;font-weight:700;font-size:.95rem;line-height:1.3;text-decoration:none}
   .heattab:hover{filter:brightness(1.06)}
+  .pricelinks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;max-width:960px}
+  @media(max-width:700px){.pricelinks{grid-template-columns:1fr}}
+  .pricelinks .pricelink{margin-top:0;max-width:none}
+  .pricelink.heat{background:var(--accent);color:#1a1a1a}
+  .pricelink.heat span{color:#3a2a00}
 
 </style>
 </head>
@@ -338,7 +343,7 @@
       <div><h3>Segundas opiniones gratis</h3><p>¿Recibió una cotización que no le convence? Le conectamos con una empresa con licencia que se especializa en su problema, sin costo para usted.</p></div>
       <button type="button" class="btn primary" id="soBtn">Pedir una segunda opinión</button>
     </div>
-    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta el aire? Vea los precios promedio de reparación</strong><span>Precios aproximados de calentones, resistencias eléctricas, bombas de calor, capacitores, serpentines, compresores y más.</span></a>
+    <div class="pricelinks"><a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta el aire? Vea los precios promedio de reparación</strong><span>Precios aproximados de capacitores, contactores, motores, refrigerante, serpentines y compresores.</span></a><a class="pricelink heat" href="es-heating-repair-prices.html"><strong>¿No sabe cuánto cuesta la calefacción? Haga clic aquí</strong><span>Precios aproximados de calentones, resistencias eléctricas y bombas de calor, más un sistema básico nuevo.</span></a></div>
   </div>
 </section>
 <section>
@@ -354,7 +359,7 @@
     <h2>Cómo suele ser una reparación</h2>
     <p class="sub">La diferencia entre $300 y $6,000 es grande porque &quot;mi aire dejó de funcionar&quot; puede significar muchas cosas. A grandes rasgos, las reparaciones caen en tres grupos:</p>
     <div class="pgrid three"><div class="promise"><strong>Los arreglos rápidos</strong><span>Un capacitor o contactor gastado, un drenaje de condensación tapado, un interruptor de seguridad disparado o un problema del termostato. Están en la parte baja del rango y muchas veces le devuelven el fresco el mismo día.</span></div><div class="promise"><strong>Los trabajos más grandes</strong><span>Un motor del ventilador que está fallando, una fuga de refrigerante que hay que encontrar y reparar, o problemas de cableado o de la tarjeta de control. Quedan a la mitad del rango.</span></div><div class="promise"><strong>Los serios</strong><span>Un compresor dañado o un serpentín roto. Son las reparaciones que llegan a lo más alto del rango, y el momento en que la mayoría de los propietarios se pregunta si conviene más reemplazar.</span></div></div>
-    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta el aire? Vea los precios promedio de reparación</strong><span>Precios aproximados de calentones, resistencias eléctricas, bombas de calor, capacitores, serpentines, compresores y más.</span></a>
+    <a class="pricelink" href="es-ac-repair-prices.html"><strong>¿No sabe cuánto cuesta el aire? Vea los precios promedio de reparación</strong><span>Precios aproximados de capacitores, contactores, motores, refrigerante, serpentines y compresores.</span></a>
   </div>
 </section>
 <section>

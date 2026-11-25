@@ -276,6 +276,11 @@
   .heroprices .heroprice{margin-top:0;flex:1 1 220px}
   .heattab{flex:1 1 220px;display:inline-flex;align-items:center;padding:10px 14px;border-radius:10px;background:var(--accent);color:#1a1a1a;font-weight:700;font-size:.95rem;line-height:1.3;text-decoration:none}
   .heattab:hover{filter:brightness(1.06)}
+  .pricelinks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;max-width:960px}
+  @media(max-width:700px){.pricelinks{grid-template-columns:1fr}}
+  .pricelinks .pricelink{margin-top:0;max-width:none}
+  .pricelink.heat{background:var(--accent);color:#1a1a1a}
+  .pricelink.heat span{color:#3a2a00}
 
 </style>
 </head>
@@ -338,7 +343,7 @@
       <div><h3>Free second opinions</h3><p>Got a quote that doesn't feel right? We'll connect you with a licensed company that specializes in your concern, free to you.</p></div>
       <button type="button" class="btn primary" id="soBtn">Ask for a second opinion</button>
     </div>
-    <a class="pricelink" href="ac-repair-prices.html"><strong>Unsure of AC costs? See average AC repair prices</strong><span>Ballpark prices for furnaces, heat strips, heat pumps, capacitors, coils, compressors and more.</span></a>
+    <div class="pricelinks"><a class="pricelink" href="ac-repair-prices.html"><strong>Unsure of AC costs? See average AC repair prices</strong><span>Ballpark prices for capacitors, contactors, blower motors, refrigerant, coils and compressors.</span></a><a class="pricelink heat" href="heating-repair-prices.html"><strong>Unsure of heating costs? Click here</strong><span>Ballpark prices for furnaces, heat strips and heat pumps, plus a new basic system.</span></a></div>
   </div>
 </section>
 <section>
@@ -347,7 +352,7 @@
     <p class="sub">Tell us which one sounds like yours, or describe it in your own words.</p>
     <ul class="probs"><li>AC blowing warm air or not cooling</li><li>Unit won't turn on or keeps shutting off</li><li>Frozen coil or ice on the lines</li><li>Water leaking around the indoor unit</li><li>Strange noises or burning smells</li><li>Heater or heat pump not warming the house</li><li>High electric bills or uneven rooms</li><li>A replacement quote you want a second opinion on</li></ul>
     <a class="btn navy" href="#services">Get help now</a>
-    <a class="pricelink" href="ac-repair-prices.html"><strong>Unsure of AC costs? See average AC repair prices</strong><span>Ballpark prices for furnaces, heat strips, heat pumps, capacitors, coils, compressors and more.</span></a>
+    <a class="pricelink" href="ac-repair-prices.html"><strong>Unsure of AC costs? See average AC repair prices</strong><span>Ballpark prices for capacitors, contactors, blower motors, refrigerant, coils and compressors.</span></a>
   </div>
 </section>
 
